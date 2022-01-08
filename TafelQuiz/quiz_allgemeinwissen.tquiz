@@ -1,0 +1,58 @@
+[
+   {
+      "question":"Wie heisst die Hauptstadt von Thueringen",
+      "answer_a":"Magdeburg",
+      "answer_b":"Erfurt",
+      "answer_c":"Dresden",
+      "answer_d":"Potsdam",
+      "correctanswer":"b"
+   },
+   {
+      "question":"In welcher Einheit wird der elektrische Widerstand gemessen?",
+      "answer_a":"Ohm",
+      "answer_b":"Volt",
+      "answer_c":"Ampere",
+      "answer_d":"Watt",
+      "correctanswer":"a"
+   },
+   {
+      "question":"Wie lautet das chemische Symbol fuer Blei?",
+      "answer_a":"Bl",
+      "answer_b":"Be",
+      "answer_c":"Pb",
+      "answer_d":"Pt",
+      "correctanswer":"c"
+   },
+   {
+      "question":"Wie viele Planeten hat unser Sonnensystem?",
+      "answer_a":"8",
+      "answer_b":"9",
+      "answer_c":"10",
+      "answer_d":"11",
+      "correctanswer":"a"
+   },
+   {
+      "question":"An welchem Datum fiel die Berliner Mauer?",
+      "answer_a":"3. Oktober 1990",
+      "answer_b":"2. November 1990",
+      "answer_c":"9. November 1989",
+      "answer_d":"8. Oktober 1989",
+      "correctanswer":"c"
+   },
+   {
+      "question":"Was ist ein Sonett?",
+      "answer_a":"Eine Stichwaffe",
+      "answer_b":"Ein Musikinstrument",
+      "answer_c":"Ein Pilz",
+      "answer_d":"Eine Gedichtsform",
+      "correctanswer":"d"
+   },
+   {
+      "question":"Wie viele Bundeslaender hat Deutschland?",
+      "answer_a":"14",
+      "answer_b":"15",
+      "answer_c":"16",
+      "answer_d":"17",
+      "correctanswer":"c"
+   }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "question":"Wann ging morihofi.de online?",
+        "answer_a":"06.11.2018",
+        "answer_b":"05.12.2018",
+        "answer_c":"07.10.2017",
+        "answer_d":"04.09.2018",
+        "correctanswer":"a"
+    },
+    {
+        "question":"Wie alt ist morihofi.de?",
+        "answer_a":"1 Jahr",
+        "answer_b":"2 Jahre",
+        "answer_c":"3 Jahre",
+        "answer_d":"4 Jahre",
+        "correctanswer":"b"
+    }
+]

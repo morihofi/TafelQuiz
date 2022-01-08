@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import org.controlsfx.control.StatusBar?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="820.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.morihofi.tafelquiz.QuizEditor">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar prefHeight="25.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="Datei">
+                  <items>
+                        <MenuItem fx:id="mennewquiz" mnemonicParsing="false" onAction="#mennewquizclick" text="Neues Quiz" />
+                    <MenuItem fx:id="menquizload" mnemonicParsing="false" onAction="#menquizloadclick" text="Quiz öffnen" />
+                        <MenuItem fx:id="menquizsave" mnemonicParsing="false" onAction="#menquizsaveclick" text="Quiz speichern" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <left>
+            <AnchorPane prefHeight="413.0" prefWidth="341.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ListView fx:id="lstquestions" layoutY="42.0" prefHeight="331.0" prefWidth="303.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0" />
+                  <ButtonBar layoutX="-3.0" prefHeight="40.0" prefWidth="303.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <buttons>
+                        <Button fx:id="btnnew" mnemonicParsing="false" onAction="#btnnewclick" prefHeight="25.0" prefWidth="87.0" text="Neu" />
+                        <Button fx:id="btnedit" mnemonicParsing="false" onAction="#btneditclick" prefHeight="25.0" prefWidth="97.0" text="Bearbeiten" />
+                        <Button fx:id="btndelete" mnemonicParsing="false" onAction="#btndeleteclick" prefHeight="25.0" prefWidth="84.0" text="Löschen" />
+                     </buttons>
+                  </ButtonBar>
+                  <ButtonBar layoutY="373.0" prefHeight="40.0" prefWidth="302.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <buttons>
+                        <Button fx:id="btnmoveup" mnemonicParsing="false" onAction="#btnmoveupclick" text="↑ Nach oben" />
+                        <Button fx:id="btnmovedown" mnemonicParsing="false" onAction="#btnmovedownclick" text="↓ Nach unten" />
+                     </buttons>
+                  </ButtonBar>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane fx:id="apquestionedit" disable="true" prefHeight="413.0" prefWidth="501.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="txtquestion" layoutX="18.0" layoutY="31.0" prefHeight="25.0" prefWidth="366.0" promptText="Geben Sie eine Frage ein" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="31.0" />
+                  <Label layoutX="17.0" layoutY="14.0" text="Frage:" />
+                  <Label layoutX="20.0" layoutY="90.0" text="Antwortmöglichkeiten:" />
+                  <Label layoutX="50.0" layoutY="107.0" text="Antwort A:" />
+                  <Label layoutX="50.0" layoutY="149.0" text="Antwort B:" />
+                  <Label layoutX="50.0" layoutY="191.0" text="Antwort C:" />
+                  <Label layoutX="52.0" layoutY="233.0" text="Antwort D:" />
+                  <TextField fx:id="txtanswer_a" layoutX="79.0" layoutY="124.0" prefHeight="25.0" prefWidth="306.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="16.0" />
+                  <TextField fx:id="txtanswer_b" layoutX="78.0" layoutY="166.0" prefHeight="25.0" prefWidth="306.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="16.0" />
+                  <TextField fx:id="txtanswer_c" layoutX="78.0" layoutY="208.0" prefHeight="25.0" prefWidth="306.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="16.0" />
+                  <TextField fx:id="txtanswer_d" layoutX="78.0" layoutY="250.0" prefHeight="25.0" prefWidth="306.0" AnchorPane.leftAnchor="78.0" AnchorPane.rightAnchor="16.0" />
+                  <Button fx:id="btnaddquestion" layoutX="261.0" layoutY="306.0" mnemonicParsing="false" onAction="#btnaddquestionclick" prefHeight="25.0" prefWidth="169.0" text="Hinzufügen/Update" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="16.0" />
+                  <RadioButton fx:id="rbanswer_a" layoutX="52.0" layoutY="128.0" mnemonicParsing="false" selected="true">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="question" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rbanswer_b" layoutX="52.0" layoutY="170.0" mnemonicParsing="false" toggleGroup="$question" />
+                  <RadioButton fx:id="rbanswer_c" layoutX="52.0" layoutY="212.0" mnemonicParsing="false" toggleGroup="$question" />
+                  <RadioButton fx:id="rbanswer_d" layoutX="52.0" layoutY="254.0" mnemonicParsing="false" toggleGroup="$question" />
+               </children>
+            </AnchorPane>
+         </center>
+         <bottom>
+            <StatusBar fx:id="sbbottom" prefWidth="600.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

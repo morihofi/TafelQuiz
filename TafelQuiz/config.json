@@ -1,0 +1,4 @@
+{
+    "masterserver":"ws://192.168.178.43:5559/quizws",
+    "onlinedirservice":"https://apps.morihofi.de/tafelquiz/api.php"
+}

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.StatusBar?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="755.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.morihofi.tafelquiz.MainController">
+   <children>
+      <MenuBar prefHeight="29.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Datei">
+            <items>
+                  <MenuItem fx:id="menloadquiz" mnemonicParsing="false" onAction="#menloadquizclick" text="Quiz laden" />
+                  <MenuItem fx:id="mencreatequiz" mnemonicParsing="false" onAction="#mencreatequizclick" text="Quiz Editor öffnen" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem fx:id="menfileexit" mnemonicParsing="false" onAction="#menfileexitclick" text="Beenden" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Hilfe">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Über" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <StatusBar fx:id="sbbottom" layoutY="371.0" prefWidth="600.0" text="Einen Moment bitte..." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Button fx:id="btnquizrun" layoutX="14.0" layoutY="338.0" mnemonicParsing="false" onAction="#btnquizrunclick" prefHeight="26.0" prefWidth="124.0" text="Quiz laden" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="14.0" />
+      <AnchorPane fx:id="aponlinedir" layoutX="19.0" layoutY="47.0" prefHeight="327.0" prefWidth="690.0" style="-fx-border-color: grey; -fx-border-width: 1;" visible="false" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="37.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="690.0" text="Online Verzeichnis" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <ListView fx:id="lvonlinedir" layoutX="14.0" layoutY="53.0" prefHeight="256.0" prefWidth="705.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="53.0">
+               <contextMenu>
+                  <ContextMenu>
+                    <items>
+                      <MenuItem fx:id="menonlinedirquizload" mnemonicParsing="false" onAction="#menonlinedirquizloadclick" text="Quiz laden" />
+                        <MenuItem fx:id="menonlinedirquizsave" mnemonicParsing="false" onAction="#menonlinedirquizsaveclick" text="Quiz speichern unter" />
+                    </items>
+                  </ContextMenu>
+               </contextMenu>
+            </ListView>
+            <Label layoutX="14.0" layoutY="325.0" text="Wählen Sie mit der rechten Maustaste, um das Menü zu öffnen für weitere Informationen" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apquestion" layoutX="9.0" layoutY="37.0" prefHeight="292.0" prefWidth="690.0" style="-fx-border-color: grey; -fx-border-width: 1;" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="37.0">
+         <children>
+            <Label fx:id="lblping" layoutX="11.0" layoutY="6.0" text="Ping: ?; Sitzungs-ID: ???" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="8.0" />
+            <Label fx:id="lblcurrentquestion" alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="71.0" prefHeight="52.0" prefWidth="562.0" text="Frage" textAlignment="CENTER" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="71.0">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblpeoplevoted" alignment="CENTER" contentDisplay="CENTER" layoutY="124.0" prefHeight="17.0" prefWidth="670.0" text="Bisher haben 0 Personen angestimmt" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="124.0" />
+            <GridPane layoutX="16.0" layoutY="163.0" prefHeight="178.0" prefWidth="707.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="162.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="lblcurrentanswera" text="Antwort A: ?">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblcurrentanswerc" text="Antwort C: ?" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblcurrentanswerb" text="Antwort B: ?" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblcurrentanswerd" text="Antwort D: ?" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <CheckBox fx:id="cbautonextwhenvoted" alignment="CENTER_RIGHT" contentDisplay="BOTTOM" layoutX="333.0" layoutY="12.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="103.0" text="Weiter, wenn" textAlignment="RIGHT" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="11.0" />
+            <Spinner fx:id="spautonextwhenvoted" editable="true" layoutX="446.0" layoutY="5.0" max="100" min="1" prefHeight="25.0" prefWidth="80.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="5.0" />
+            <Label layoutX="533.0" layoutY="18.0" prefHeight="17.0" prefWidth="189.0" text="Personen angestimmt haben" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="10.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="apsummary" layoutX="9.0" layoutY="37.0" prefHeight="327.0" prefWidth="690.0" style="-fx-border-color: grey; -fx-border-width: 1;" visible="false" AnchorPane.bottomAnchor="71.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="37.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="6.0" prefHeight="52.0" prefWidth="690.0" text="Auswertung" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <BarChart fx:id="bcsummary" layoutX="2.0" layoutY="51.0" prefHeight="276.0" prefWidth="688.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="50.0">
+              <xAxis>
+                <CategoryAxis fx:id="bcxaxis" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="bcyaxis" side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnnextquestion" disable="true" layoutX="543.0" layoutY="338.0" mnemonicParsing="false" onAction="#btnnextquestionclick" prefHeight="26.0" prefWidth="151.0" text="Nächste Frage ›" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="14.0" />
+      <Button fx:id="btnevaluation" disable="true" layoutX="424.0" layoutY="374.0" mnemonicParsing="false" onAction="#btnevaluationclick" prefHeight="26.0" prefWidth="110.0" text="Auswertung" AnchorPane.bottomAnchor="36.0" AnchorPane.rightAnchor="175.0" />
+      <Button fx:id="btncreatequiz" layoutX="146.0" layoutY="400.0" mnemonicParsing="false" onAction="#btncreatequizclick" prefHeight="26.0" prefWidth="124.0" text="Editor öffnen" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="146.0" />
+      <Button fx:id="btnonlinedir" layoutX="278.0" layoutY="400.0" mnemonicParsing="false" onAction="#btnonlinedirclick" prefHeight="26.0" prefWidth="151.0" text="Online Verzeichnis" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="278.0" />
+   </children>
+</AnchorPane>
